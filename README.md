@@ -101,6 +101,18 @@ Constraints:
 
          pip install django
 
+4. **Create superuser (admin)
+       ```bash
+
+         python manage.py createsuperuser
+
+5. **Run the development server
+       ```bash
+
+         python manage.py runserver
+
+6. **Visit http://127.0.0.1:8000/ in your browser.
+
 
 
 
