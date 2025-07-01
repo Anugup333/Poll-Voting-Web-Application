@@ -34,7 +34,7 @@ A role-based web polling system built with Django. Admins can create, edit, and 
 
 ## 🌐 Deployed Application
 
-<a href="https://anugup333.pythonanywhere.com/">🔗 Click here to view the live app</a>
+🔗 [Click here to view the live app](https://anugup333.pythonanywhere.com/)
 
 ---
 
