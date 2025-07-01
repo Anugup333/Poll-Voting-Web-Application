@@ -66,11 +66,11 @@ Constraints:
 
 ## 🏗️ Relationships
 
-User     1 ------ N   Poll
-Poll     1 ------ N   PollOption
-User     1 ------ N   Vote
-Poll     1 ------ N   Vote
-PollOption 1 ---- N   Vote
+- User     1 ------ N   Poll
+- Poll     1 ------ N   PollOption
+- User     1 ------ N   Vote
+- Poll     1 ------ N   Vote
+- PollOption 1 ---- N   Vote
 
 
 
