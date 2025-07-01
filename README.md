@@ -81,11 +81,12 @@ Constraints:
 
 ---
 
-### Prerequisites
+## ✅  Prerequisites
 
-- Python 3.8+ installed
-- Git installed
-- Basic knowledge of Django (optional)
+- 🐍 Python 3.8 or higher
+- 🧪 pip (Python package manager)
+- 💻 Git (for cloning the repository)
+- 🧱 Virtualenv (optional but recommended)
 
 ## 🏗️ Project Setup & Installation
 
