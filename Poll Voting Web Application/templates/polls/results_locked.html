@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Results Locked</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #f0f2f5, #ffffff);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 450px;
+      width: 100%;
+    }
+
+    .card h3 {
+      color: #444;
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+
+    .btn-back {
+      display: inline-block;
+      text-decoration: none;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border-radius: 6px;
+      transition: background-color 0.3s;
+      font-size: 14px;
+    }
+
+    .btn-back:hover {
+      background-color: #0056b3;
+    }
+
+    @media (max-width: 500px) {
+      .card {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h3>🔒 You must vote first and wait for the poll to close before viewing results.</h3>
+    <a href="{% url 'poll_list' %}" class="btn-back">← Back to Polls</a>
+  </div>
+</body>
+</html>

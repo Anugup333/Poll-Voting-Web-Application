@@ -1,0 +1,5 @@
+{% extends 'polls/base_result.html' %}
+
+{% block redirect %}
+  <a href="{% url 'admin_poll_list' %}" class="btn-back">← Back to Polls</a>
+{% endblock redirect %}

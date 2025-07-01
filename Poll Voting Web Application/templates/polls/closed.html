@@ -1,0 +1,7 @@
+{% extends 'polls/base_result.html' %}
+
+{% block redirect %}
+    <h3>🚫 This poll is now closed then it display</h3>
+    <br>
+    <a href="{% url 'poll_list' %}" class="btn-back">← Back to Polls</a>
+{% endblock redirect %}

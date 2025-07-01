@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Poll List</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #c3cfe2, #dde3ec);
+      min-height: 100vh;
+      padding: 30px 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    .btn {
+      text-decoration: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      background-color: #007bff;
+      color: white;
+      font-size: 14px;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #0056b3;
+    }
+
+    .btn-danger {
+      background-color: #dc3545;
+    }
+
+    .btn-danger:hover {
+      background-color: #a91e2d;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 12px 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f4f4f4;
+    }
+
+    td a {
+      color: #007bff;
+      text-decoration: none;
+      margin-right: 8px;
+    }
+
+    td a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .header {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+      }
+
+      table {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h2>Admin Poll List</h2>
+      <div>
+        <a href="{% url 'create_poll' %}" class="btn">+ Create New Poll</a>
+        <a href="{% url 'login' %}" class="btn btn-danger">Logout</a>
+      </div>
+    </div>
+
+    <table>
+      <tr>
+        <th>Question</th>
+        <th>Closing Time</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+      {% for poll in polls %}
+        <tr>
+          <td>{{ poll.question }}</td>
+          <td>{{ poll.close_time }}</td>
+          <td>{% if poll.is_closed %} Closed {% else %} Open {% endif %}</td>
+          <td>
+            <a href="{% url 'edit_poll' poll.id %}">Edit</a> |
+            <a href="{% url 'delete_poll' poll.id %}">Delete</a> |
+            <a href="{% url 'poll_results_admin' poll.id %}">View Results</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
+</body>
+</html>
