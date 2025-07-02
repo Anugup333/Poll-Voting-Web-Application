@@ -52,7 +52,7 @@ def admin_poll_list(request):
     # Admin View: List All Polls
     polls = Poll.objects.all()
     for poll in polls:
-        if not poll.is_closed and make_naive(poll.close_time) < datetime.datetime.now():
+        if not poll.is_closed and poll.close_time < timezone.now():
             poll.is_closed = True
             poll.save()
     return render(request, 'polls/admin_poll_list.html', {'polls': polls})
@@ -74,7 +74,7 @@ def edit_poll(request, poll_id):
     poll_form = PollForm(request.POST or None, instance=poll)
     formset = PollOptionFormSet(request.POST or None, instance=poll)
     if request.method == 'POST' and poll_form.is_valid():
-        if make_naive(poll.close_time) < datetime.datetime.now():
+        if poll.close_time < timezone.now():
             poll.is_closed = True
         else:
             poll.is_closed = False
@@ -92,7 +92,7 @@ def poll_results_admin(request, poll_id):
     poll = get_object_or_404(Poll, id=poll_id)
     # print(make_naive(poll.close_time))
     # print(datetime.datetime.now())
-    if not poll.is_closed and make_naive(poll.close_time) < datetime.datetime.now():
+    if not poll.is_closed and poll.close_time < timezone.now():
         poll.is_closed = True
         poll.save()
         print("Poll manually closed")
@@ -116,7 +116,7 @@ def poll_list(request):
     now = timezone.now()
     polls = Poll.objects.all()
     for poll in polls:
-        if not poll.is_closed and make_naive(poll.close_time) < datetime.datetime.now():
+        if not poll.is_closed and poll.close_time < timezone.now():
             poll.is_closed = True
             poll.save()
     polls = Poll.objects.filter()
@@ -128,7 +128,7 @@ def vote_poll(request, poll_id):
     # User View: Vote in a Poll
     poll = get_object_or_404(Poll, id=poll_id)
 
-    if not poll.is_closed and make_naive(poll.close_time) < datetime.datetime.now():
+    if not poll.is_closed and poll.close_time < timezone.now():
         poll.is_closed = True
         poll.save()
 
@@ -152,7 +152,7 @@ def poll_results_user(request, poll_id):
     # User View: View Poll Results (only after voting and poll closure)
     poll = get_object_or_404(Poll, id=poll_id)
 
-    if not poll.is_closed and make_naive(poll.close_time) < datetime.datetime.now():
+    if not poll.is_closed and poll.close_time < timezone.now():
         poll.is_closed = True
         poll.save()
 

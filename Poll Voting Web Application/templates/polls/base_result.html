@@ -96,10 +96,12 @@
     
   </div>
   <!-- ✅ Place this line here -->
-{{ results|json_script:"poll-results-data" }}
+
 
 <!-- ✅ JavaScript reads it below -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+{{ results|json_script:"poll-results-data" }}
 
 <script src="{% static 'result_admin.js' %}"></script>
 

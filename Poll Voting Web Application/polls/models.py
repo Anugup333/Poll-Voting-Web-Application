@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.utils.timezone import make_naive
-import datetime
+from django.utils import timezone
 
 # Create your models here.
 
@@ -13,7 +12,7 @@ class Poll(models.Model):
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def is_open(self):
-        return not self.is_closed and  datetime.datetime.now() < make_naive(self.close_time) 
+        return not self.is_closed and  timezone.now() < self.close_time 
 
     def __str__(self):
         return self.question
