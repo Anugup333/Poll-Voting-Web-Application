@@ -6,78 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Poll Results</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    body {
-      background: linear-gradient(to right, #fdfbfb, #ebedee);
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 40px 20px;
-    }
-
-    .container {
-      background: #fff;
-      padding: 30px 40px;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-      width: 100%;
-      max-width: 700px;
-    }
-
-    h2 {
-      text-align: center;
-      margin-bottom: 25px;
-      color: #333;
-    }
-
-    canvas {
-      max-width: 100%;
-      margin-bottom: 25px;
-    }
-
-    ul {
-      list-style-type: none;
-      margin-bottom: 20px;
-      padding-left: 0;
-    }
-
-    li {
-      padding: 10px;
-      background-color: #f8f9fa;
-      margin-bottom: 8px;
-      border-left: 5px solid #007bff;
-      border-radius: 6px;
-    }
-
-    a.btn-back {
-      display: inline-block;
-      text-decoration: none;
-      padding: 10px 20px;
-      background-color: #007bff;
-      color: white;
-      border-radius: 6px;
-      font-size: 14px;
-      transition: background-color 0.3s;
-    }
-
-    a.btn-back:hover {
-      background-color: #0056b3;
-    }
-
-    @media (max-width: 500px) {
-      .container {
-        padding: 25px 20px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="{% static 'css/polls/base_result.css' %}">
 </head>
 <body>
   <div class="container">
@@ -103,7 +32,7 @@
 
 {{ results|json_script:"poll-results-data" }}
 
-<script src="{% static 'result_admin.js' %}"></script>
+<script src="{% static 'js/result_admin.js' %}"></script>
 
 </body>
 </html>
